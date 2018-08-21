@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 const HeaderContiner = styled.div`
     background-color: #4e62ff;
@@ -23,7 +24,10 @@ const HeaderTabs = styled.div`
 `
 const SubHeader = HeaderTabs.extend`
     justify-content: space-around;
-    width: calc(100% - 35em);
+    width: calc(100% - 65em)
+`
+const StyledLink = styled(Link)`
+color: aliceblue;
 `
 export const LoginHeader =()=>(
     <HeaderContiner>
@@ -31,7 +35,9 @@ export const LoginHeader =()=>(
             Pictagraph
             <SubHeader>
                 About Us
-                Log In
+                <StyledLink to='/Home'>
+                    Log In
+                </StyledLink>
             </SubHeader>
         </HeaderTabs>
     </HeaderContiner>
