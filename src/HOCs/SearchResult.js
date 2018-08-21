@@ -8,11 +8,11 @@ export const SearchResults = Component => data => {
         }
         filteredData = () =>{
            this.setState({
-               filterData: data.filter((user)=> user.name.includes(this.state.searchText)) 
+               filterData: data.filter((user)=> user.name.toString().toLowerCase().includes(this.state.searchText)) 
            }) 
         }
         updateSearch = (value)=>{
-            this.setState({searchText: value}, this.filteredData)
+            this.setState({searchText: value.toString().toLowerCase()}, this.filteredData)
         }
     render(){
         return(
