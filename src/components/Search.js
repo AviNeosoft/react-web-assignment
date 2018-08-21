@@ -63,7 +63,7 @@ class Search extends Component {
           className={this.state.focus ? "focus" : ""}
           onFocus={() => this.handleFocus()}
           onBlur={() => this.handleBlur()}
-          onChange={this.props.updateSearch}
+          onChange={e=>this.props.updateSearch(e.target.value)}
         />
     );
   }

@@ -1,24 +1,18 @@
 import React,{Component} from 'react';
 
+import {SearchResults} from '../HOCs';
 import {dummyData} from '../dummyData/dummyData';
 import {HomeHeader, Search} from '../components';
 
- class  HomeScreen extends Component {
-    state={
-        searchText: ''
-    }
-    updateSearch = (e)=>{
-        this.setState( _=> ({searchText: e.target.value}))
-    }
-    render(){
+ const  HomeScreen =(props) =>  { 
+     console.log(props.filteredData)  
         return(
             <React.Fragment>
-            <HomeHeader search={()=> <Search updateSearch={this.updateSearch}/>} />
-            {dummyData.map((user)=><div>{user.name}</div>)}
+                <HomeHeader search={()=> <Search updateSearch={props.updateSearch} />} />
+                {props.filteredData.map((user)=><div>{user.name}</div>)}
             </React.Fragment>
-        )
-    }
+        ) 
 } 
 
-const Home = SearchResults(HomeScreen);
+const Home = SearchResults(HomeScreen)(dummyData);
     export default Home
