@@ -24,20 +24,34 @@ const HeaderTabs = styled.div`
 `
 const SubHeader = HeaderTabs.extend`
     justify-content: space-around;
-    width: calc(100% - 65em)
+    width: calc(100% - 50em)
 `
 const StyledLink = styled(Link)`
 color: aliceblue;
 `
 //TODO remove this and create a hoc for it
-export const LoginHeader =()=>(
+export const HomeHeader = ({search}) => (
     <HeaderContiner>
         <HeaderTabs>
-            Pictagraph
+            <div>
+                {search()}
+
+            </div>
             <SubHeader>
-                About Us
-                <StyledLink to='/Home'>
-                    Log In
+                <div>
+                    Home
+                </div>
+                <div>
+                    Notification
+                </div>
+                <div>
+                    Campaing
+                </div>
+                <div>
+                    Profile
+                </div>
+                <StyledLink to='/'>
+                    Log out
                 </StyledLink>
             </SubHeader>
         </HeaderTabs>
